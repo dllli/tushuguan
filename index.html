@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>签到成功</title>
 
-    <script src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
     <div class="header-box" id="Date">
@@ -121,11 +120,19 @@
 </style>
 <script>
 
-    $(function (){
-        var now = new Date();
-        var time = now.getFullYear() + "-" +((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate();
-        let time2 = now.getHours() + ":" + now.getMinutes()+":" +now.getSeconds()
-        $("#Date").html(time +' '+ time2)
-    })
+    function repair(i){
+        if (i >= 0 && i <= 9) {
+            return "0" + i;
+        } else {
+            return i;
+        }
+    }
+   window.onload = function (){
+       let DateItem = document.getElementById("Date")
+       var now = new Date();
+       var time = now.getFullYear() + "-" +((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate();
+       let time2 = repair(now.getHours()) + ":" + repair(now.getMinutes())+":" +repair(now.getSeconds())
+       DateItem.innerHTML = (time +' '+ time2)
+   }
 </script>
 </html>
