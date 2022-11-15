@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>签到成功</title>
+
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+    <div class="header-box" id="Date">
+
+    </div>
+<div class="sign-box">
+    <img src="./img/img.png" alt="">
+    <strong>签到成功</strong>
+    <p>
+        签到成功，出入公共场合请佩戴口罩，注意个人卫生。
+    </p>
+    <div class="close-btn">
+        关闭
+    </div>
+</div>
+</body>
+<style>
+    .header-box{
+        background: #f3f4f8;
+        border-radius: 2vh;
+        height: 6vh;
+        width: 80%;
+        margin: 2vh auto;
+        font-weight: bold;
+        font-family: 仿宋;
+        font-size: 2.5vh;
+        text-align: center;
+        line-height: 6vh;
+
+    }
+    .sign-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sign-box img{
+        width: 40%;
+    }
+    .sign-box strong{
+        font-size: 3vh;
+        margin: 2vh 0;
+    }
+    .sign-box p{
+        font-size: 2vh;
+        padding: 0 5vw;
+        text-align: center;
+        color: #333;
+    }
+    .sign-box .close-btn{
+        width: 90%;
+        height: 6vh;
+        color:#fff;
+        font-size: 2.2vh;
+        text-align: center;
+        border-radius: 1vh;
+        line-height: 6vh;
+        margin-top: 2vh;
+        background-color: hsl(234deg 66% 60%);
+    }
+</style>
+<script>
+
+    $(function (){
+        var now = new Date();
+        var time = now.getFullYear() + "-" +((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate();
+        let time2 = now.getHours() + ":" + now.getMinutes()+":" +now.getSeconds()
+        $("#Date").html(time +' '+ time2)
+    })
+</script>
+</html>
